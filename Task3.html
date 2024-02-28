@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task3</title>
+    <link rel="stylesheet" type="text/css" href="Styles.css">
+</head>
+<body>
+    <img id="field" src="field.jpg"> <img id="ball" src="ball.png">
+
+    <script>
+        const field = document.getElementById("field");
+        const ball = document.getElementById("ball");
+
+        function Football(event)
+        {
+            const fieldRect = field.getBoundingClientRect();
+            const ballWidth = ball.offsetWidth;
+            const ballHeight = ball.offsetHeight;
+
+            const mouseX = event.clientX - fieldRect.left;
+            const mouseY = event.clientY - fieldRect.top;
+
+            const ballX = mouseX - ballWidth / 3;
+            const ballY = mouseY - ballHeight / 3;
+
+            ball.style.left = ballX + 'px';
+            ball.style.top = ballY + 'px';
+        }
+
+        field.addEventListener("click", Football);
+    </script>
+</body>
+</html>

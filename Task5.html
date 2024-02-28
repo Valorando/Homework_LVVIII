@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="Styles.css">
+    <title>Task5</title>
+</head>
+<body>
+    <ol id="list">
+        <li>"JavaScript for Kids: A playful Intrudotion to Programming" by Nick Morgan</li>
+        <li>"Eloquent JavaScript: A Modern Introduction to Programming" by Marjin Haverbeke</li>
+        <li>"JavaScript: The Good Parts" by Douglas Crokcford</li>
+        <li>"Programming JavaScript Applications: Robust Web Architecture with Node, HTML5, and Modern JS Libraries" by Eric Eliott</li>
+        <li>"Effective JavaScript: 68 Specific Ways to Harness the Power of JavaScript" by David Herman</li>
+        <li>"JavaScript: The Difinitive Guide" by David Flanagan</li>
+        <li>"You don't know JS" by Kyle Simpson</li>
+    </ol>
+
+    <script>
+        var listItems = document.querySelectorAll("#list li");
+        var previousSelectedItem = null;
+
+        function Selection(item)
+        {
+            if (previousSelectedItem !== null)
+            {
+                previousSelectedItem.style.backgroundColor = "rgb(255, 231, 221)";
+            }
+
+            item.style.backgroundColor = "rgb(255, 179, 151)";
+            previousSelectedItem = item;
+        }
+
+        listItems.forEach(function(item) {
+        item.addEventListener("click", function() {
+            Selection(item);
+        });
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="Styles.css">
+    <title>Task8</title>
+</head>
+<body>
+    <div id="block">
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () 
+        {
+            const block = document.getElementById('block');
+            let isResizing = false;
+            let startX;
+            let startY;
+            let startWidth;
+            let startHeight;
+
+            block.addEventListener('mousedown', function (event) 
+            {
+                if (event.offsetX > block.offsetWidth - 10 && event.offsetY > block.offsetHeight - 10) 
+                {
+                    isResizing = true;
+                    startX = event.clientX;
+                    startY = event.clientY;
+                    startWidth = block.offsetWidth;
+                    startHeight = block.offsetHeight;
+                }
+            });
+
+            document.addEventListener('mousemove', function (event) 
+            {
+                if (isResizing) 
+                {
+                    const deltaX = event.clientX - startX;
+                    const deltaY = event.clientY - startY;
+
+                    block.style.width = startWidth + deltaX + 'px';
+                    block.style.height = startHeight + deltaY + 'px';
+                }
+            });
+
+            document.addEventListener('mouseup', function ()
+            {
+                isResizing = false;
+            });
+        });
+    </script>
+</body>
+</html>

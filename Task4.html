@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="Styles.css">
+    <title>Task4</title>
+</head>
+<body>
+     <div id="container1">
+        <div id="corpus">
+            <div id="red"></div>
+            <div id="yellow"></div>
+            <div id="green"></div>
+        </div>
+        <input type="button" id="next" value="Next">
+     </div>
+
+     <script>
+        const blocks = ["red", "yellow", "green"];
+        const next = document.getElementById("next");
+        var currentIndex = 0;
+
+        function TrafficLight()
+        {
+            const currentColor = blocks[currentIndex % blocks.length];
+            const previousColor = blocks[(currentIndex - 1 + blocks.length) % blocks.length];
+            document.getElementById(previousColor).style.backgroundColor = "lightgray";
+            document.getElementById(currentColor).style.backgroundColor = currentColor;
+            currentIndex++;
+        }
+
+        next.addEventListener("click", TrafficLight);
+     </script>
+</body>
+</html>

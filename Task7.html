@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="Styles.css">
+    <title>Task7</title>
+</head>
+<body>
+    <ul id="tree">
+        <li>This PC
+            <ul id="subtree">
+                <li>Local Disk (C:)
+                    <ul id="items">
+                        <li>Program Files</li>
+                        <li>Users</li>
+                        <li>Windows</li>
+                    </ul>
+                </li>
+                <li>Local Disk (D:)
+                    <ul id="items">
+                        <li>New Folder 1</li>
+                        <li>New Folder 2</li>
+                        <li>New Folder 3</li>
+                    </ul>
+                </li>
+                <li>Local Disk (E:)</li>
+            </ul>
+        </li>
+    </ul>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function () 
+        {
+            const tree = document.querySelector('#tree > li');
+            tree.addEventListener('mouseover', function () 
+            {
+                const subtree = this.querySelector('#subtree');
+                if (subtree) 
+                {
+                    subtree.style.display = 'block';
+                }
+            });
+            
+            tree.addEventListener('mouseout', function () 
+            {
+                const subtree = this.querySelector('#subtree');
+                if (subtree) 
+                {
+                    subtree.style.display = 'none';
+                }
+            });
+            
+            const subtrees = document.querySelectorAll('#subtree > li');
+            subtrees.forEach(function (subtree) 
+            {
+                subtree.addEventListener('mouseover', function () 
+                {
+                    const items = this.querySelector('#items');
+                    if (items) 
+                    {
+                        items.style.display = 'block';
+                    }
+                });
+
+                subtree.addEventListener('mouseout', function () 
+                {
+                    const items = this.querySelector('#items');
+                    if (items) 
+                    {
+                        items.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        
+    </script>
+</body>
+</html>

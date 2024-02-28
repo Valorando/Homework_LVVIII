@@ -1,0 +1,111 @@
+@charset "windows-1251";
+
+#modalWindow
+{
+    width: 200px;
+    height: 60px;
+
+    display: none;
+    z-index: 1;
+
+    background-color: rgb(240, 240, 240);
+    text-align: center;
+
+}
+
+#field {
+    position: relative;
+}
+
+#ball {
+    position: absolute;
+    
+}
+
+#container1
+{
+    display: inline-flex;
+    gap: 20px;
+}
+
+#corpus
+{
+    width: 350px;
+    height: 150px;
+    border-radius: 20px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+#red, #yellow, #green
+{
+    background-color: lightgray;
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+}
+
+#next
+{
+    height: 150px;
+    width: 90px;
+    border-radius: 20px;
+}
+
+#container2 {
+    position: relative;
+    display: inline-block;
+}
+
+#hint1, #hint2 {
+    visibility: hidden;
+    width: 80px;
+    background-color: darkorchid;
+    color: white;
+    text-align: center;
+    position: absolute;
+    z-index: 1;
+}
+
+#b1, #b2
+{
+    margin-left: 100px;
+    position: relative;
+}
+
+#b1
+{
+    position: relative;
+    top: 50px;
+}
+
+ul 
+{
+    list-style-type: none;
+    cursor: pointer;
+}
+
+#subtree 
+{
+    display: none;
+}
+
+#items 
+{
+    display: none;
+}
+
+#block
+{
+    width: 380px;
+    height: 60px;
+    border: 1px solid black;
+    padding-top: 20px;
+    padding-left: 40px;
+    padding-right: 20px;
+    resize: both; 
+    overflow: auto; 
+}

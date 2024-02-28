@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task1_and_2</title>
+    <link rel="stylesheet" type="text/css" href="Styles.css">
+</head>
+<body>
+    <b>Задание 1:</b><br><br>
+    Enter your name (name can't contain digits):<br>
+    <input type="text" id="text1"><br><br><br>
+
+    <script>
+        function Filtration()
+        {
+            const char = event.data || text1.value.charAt(text1.selectionStart - 1);
+
+            if (!isNaN(char)) 
+            {
+                const cursorPosition = text1.selectionStart;
+                const textBeforeCursor = text1.value.substring(0, cursorPosition - 1);
+                const textAfterCursor = text1.value.substring(cursorPosition);
+                text1.value = textBeforeCursor + textAfterCursor;
+                text1.setSelectionRange(cursorPosition - 1, cursorPosition - 1);
+            }
+        }
+        const text1 = document.getElementById("text1");
+        text1.addEventListener('input', Filtration);
+    </script>
+
+    <b>Задание 2:</b><br><br>
+    <input type="button" id="open" value="Open modal">
+
+    <div id="modalWindow"><b>Hello from modal window</b><br><input type="button" id="close" value="Закрыть"></div>
+
+    <script>
+        const open = document.getElementById("open");
+        const modalwindow = document.getElementById("modalWindow");
+        const close = document.getElementById("close");
+
+        open.addEventListener("click", () => modalWindow.style.display = "block");
+        close.addEventListener("click", () => modalWindow.style.display = "none");
+    </script>
+</body>
+</html>

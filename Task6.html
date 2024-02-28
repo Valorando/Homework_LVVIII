@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="Styles.css">
+    <title>Task6</title>
+</head>
+<body>
+      <div id="container2">
+        <input id="b1" type="button" value="Button1">
+        <input id="b2" type="button" value="Button2">
+        <span id="hint1">Tool tip 1</span>
+        <span id="hint2">Tool tip 2</span>
+    </div>
+
+    <script>
+        const button1 = document.getElementById("b1");
+        const button2 = document.getElementById("b2");
+        const hint1 = document.getElementById("hint1");
+        const hint2 = document.getElementById("hint2");
+
+
+        function Show(button, hint)
+        {
+            var buttonRect = button.getBoundingClientRect();
+            var tooltipHeight = hint.offsetHeight;
+            var tooltipWidth = hint.offsetWidth;
+
+            if (buttonRect.top - tooltipHeight > 0) 
+            {
+                hint.style.top = (buttonRect.top - tooltipHeight) + "px";
+            } 
+            else 
+            {
+                hint.style.top = (buttonRect.bottom + 5) + "px";
+            }
+
+            if (buttonRect.right + tooltipWidth > window.innerWidth) 
+            {
+                hint.style.left = (window.innerWidth - tooltipWidth) + "px";
+            } 
+            else 
+            {
+                hint.style.left = buttonRect.left + "px";
+            }
+
+            hint.style.visibility = "visible";
+        }
+
+        function Hide(button, hint)
+        {
+            hint.style.visibility = "hidden";
+        }
+
+        button1.addEventListener("mouseover", function() {Show(button1, hint1)});
+        button2.addEventListener("mouseover", function() {Show(button2, hint2)});
+        button1.addEventListener("mouseout", function() {Hide(button1, hint1)});
+        button2.addEventListener("mouseout", function() {Hide(button2, hint2)});
+    </script>
+</body>
+</html>
